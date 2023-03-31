@@ -5,7 +5,6 @@ import flask
 
 app = flask.Flask(__name__)
 
-
 @app.route("/")
 def index():
     version = flask.request.args.get("urllib_version")
@@ -40,10 +39,12 @@ def load_yaml(filename):
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
     
+
 def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
+
 
 if __name__ == '__main__':
     print("Vulnerabilities:")
@@ -64,4 +65,3 @@ if __name__ == '__main__':
     elif choice == "4":
         password = input("Enter master password: ")
         authenticate(password)
-
